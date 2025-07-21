@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #282c34;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#game-field {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 5px;
+    border: 5px solid #fff;
+    background-color: #444;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #666;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    position: relative;
+}
+
+.cell:hover {
+    background: #777;
+}
+
+.goblin {
+    width: 80px;
+    height: 80px;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+#score, #misses {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
