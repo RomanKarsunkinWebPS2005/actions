@@ -1,4 +1,4 @@
-import goblinImg from '../img/goblin.png';
+import goblinImg from "../img/goblin.png";
 
 export default class Goblin {
   constructor(field, onHit, onMiss) {
@@ -7,17 +7,17 @@ export default class Goblin {
     this.onMiss = onMiss;
     this.currentIdx = null;
     this.timer = null;
-    this.goblin = document.createElement('img');
+    this.goblin = document.createElement("img");
     this.goblin.src = goblinImg;
-    this.goblin.className = 'goblin';
-    this.goblin.style.width = '80px';
-    this.goblin.addEventListener('click', () => this.hit());
+    this.goblin.className = "goblin";
+    this.goblin.style.width = "80px";
+    this.goblin.addEventListener("click", () => this.hit());
     this.missed = false;
   }
 
   show() {
     this.missed = true;
-    const {cell, idx} = this.field.getRandomCell(this.currentIdx);
+    const { cell, idx } = this.field.getRandomCell(this.currentIdx);
     this.field.clear();
     cell.appendChild(this.goblin);
     this.currentIdx = idx;
@@ -49,4 +49,4 @@ export default class Goblin {
     this.hide();
     clearTimeout(this.timer);
   }
-} 
+}

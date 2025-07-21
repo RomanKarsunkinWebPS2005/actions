@@ -3,13 +3,13 @@ export default class MissCounter {
     this.value = 0;
     this.maxMisses = maxMisses;
     this.onGameOver = onGameOver;
-    this.el = document.createElement('div');
-    this.el.id = 'misses';
-    this.el.style.color = '#fff';
-    this.el.style.fontSize = '20px';
-    this.el.style.marginBottom = '10px';
+    this.el = document.createElement("div");
+    this.el.id = "misses";
+    this.el.style.color = "#fff";
+    this.el.style.fontSize = "20px";
+    this.el.style.marginBottom = "10px";
     this.update();
-    document.body.insertBefore(this.el, document.getElementById('game-field'));
+    document.body.insertBefore(this.el, document.getElementById("game-field"));
   }
 
   increment() {
@@ -28,4 +28,4 @@ export default class MissCounter {
   update() {
     this.el.textContent = `Промахи: ${this.value}/5`;
   }
-} 
+}

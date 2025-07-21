@@ -1,8 +1,8 @@
-import GameField from './gameField';
-import Goblin from './goblin';
-import Score from './score';
-import MissCounter from './missCounter';
-import HammerCursor from './hammerCursor';
+import GameField from "./gameField";
+import Goblin from "./goblin";
+import Score from "./score";
+import MissCounter from "./missCounter";
+import HammerCursor from "./hammerCursor";
 
 export default class Game {
   constructor() {
@@ -18,7 +18,7 @@ export default class Game {
       () => {
         this.missCounter.increment();
         this.nextTurn();
-      }
+      },
     );
     this.hammer = new HammerCursor();
     this.isGameOver = false;
@@ -44,4 +44,4 @@ export default class Game {
       this.start();
     }, 100);
   }
-} 
+}
