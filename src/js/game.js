@@ -7,6 +7,12 @@ import HammerCursor from "./hammerCursor";
 export default class Game {
   constructor() {
     this.field = new GameField();
+    this.field.onEmptyCellClick = () => {
+      if (!this.isGameOver) {
+        this.missCounter.increment();
+        this.nextTurn();
+      }
+    };
     this.score = new Score();
     this.missCounter = new MissCounter(this.endGame.bind(this));
     this.goblin = new Goblin(
@@ -40,8 +46,27 @@ export default class Game {
     this.isGameOver = true;
     this.goblin.stop();
     setTimeout(() => {
-      alert(`Игра окончена! Ваш счёт: ${this.score.value}`);
+      // alert(`Игра окончена! Ваш счёт: ${this.score.value}`);
+      showModal(`Игра окончена! Ваш счёт: ${this.score.value}`);
       this.start();
     }, 100);
   }
+}
+
+function showModal(message) {
+  const modal = document.getElementById('modal');
+  const modalMessage = document.getElementById('modal-message');
+  const modalClose = document.getElementById('modal-close');
+  modalMessage.textContent = message;
+  modal.classList.add('show');
+  function closeModal() {
+    modal.classList.remove('show');
+    modalClose.removeEventListener('click', closeModal);
+    modal.removeEventListener('click', outsideClick);
+  }
+  function outsideClick(e) {
+    if (e.target === modal) closeModal();
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', outsideClick);
 }

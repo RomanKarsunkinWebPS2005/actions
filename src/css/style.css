@@ -19,6 +19,7 @@ body {
     padding: 5px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     border-radius: 10px;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="14" y="2" width="4" height="20" fill="gray"/><rect x="10" y="0" width="12" height="6" fill="black"/><rect x="15" y="22" width="2" height="8" fill="saddlebrown"/></svg>') 8 8, auto;
 }
 
 .cell {
@@ -51,5 +52,37 @@ body {
     font-size: 24px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  color: #222;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
 }
   

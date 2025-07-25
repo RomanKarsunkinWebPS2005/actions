@@ -12,6 +12,13 @@ export default class GameField {
     for (let i = 0; i < this.size * this.size; i++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
+      cell.addEventListener("click", (e) => {
+        if (!cell.querySelector(".goblin")) {
+          if (typeof this.onEmptyCellClick === 'function') {
+            this.onEmptyCellClick(cell, i, e);
+          }
+        }
+      });
       this.field.appendChild(cell);
       this.cells.push(cell);
     }

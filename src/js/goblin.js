@@ -11,6 +11,7 @@ export default class Goblin {
     this.goblin.src = goblinImg;
     this.goblin.className = "goblin";
     this.goblin.style.width = "80px";
+    this.goblin.alt = "";
     this.goblin.addEventListener("click", () => this.hit());
     this.missed = false;
   }
@@ -19,14 +20,14 @@ export default class Goblin {
     this.missed = true;
     const { cell, idx } = this.field.getRandomCell(this.currentIdx);
     this.field.clear();
-    cell.appendChild(this.goblin);
+    cell.append(this.goblin);
     this.currentIdx = idx;
     this.timer = setTimeout(() => this.miss(), 1000);
   }
 
   hide() {
     if (this.goblin.parentNode) {
-      this.goblin.parentNode.removeChild(this.goblin);
+      this.goblin.remove();
     }
     clearTimeout(this.timer);
   }
