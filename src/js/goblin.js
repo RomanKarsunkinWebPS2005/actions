@@ -12,7 +12,10 @@ export default class Goblin {
     this.goblin.className = "goblin";
     this.goblin.style.width = "80px";
     this.goblin.alt = "";
-    this.goblin.addEventListener("click", () => this.hit());
+    this.goblin.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this.hit();
+    });
     this.missed = false;
   }
 

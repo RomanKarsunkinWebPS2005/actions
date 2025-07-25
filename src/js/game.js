@@ -46,14 +46,14 @@ export default class Game {
     this.isGameOver = true;
     this.goblin.stop();
     setTimeout(() => {
-      // alert(`Игра окончена! Ваш счёт: ${this.score.value}`);
-      showModal(`Игра окончена! Ваш счёт: ${this.score.value}`);
-      this.start();
+      showModal(`Игра окончена! Ваш счёт: ${this.score.value}`, () => {
+        this.start();
+      });
     }, 100);
   }
 }
 
-function showModal(message) {
+function showModal(message, onClose) {
   const modal = document.getElementById('modal');
   const modalMessage = document.getElementById('modal-message');
   const modalClose = document.getElementById('modal-close');
@@ -63,6 +63,7 @@ function showModal(message) {
     modal.classList.remove('show');
     modalClose.removeEventListener('click', closeModal);
     modal.removeEventListener('click', outsideClick);
+    if (typeof onClose === 'function') onClose();
   }
   function outsideClick(e) {
     if (e.target === modal) closeModal();
