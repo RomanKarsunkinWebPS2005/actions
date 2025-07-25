@@ -9,8 +9,7 @@ export default class Game {
     this.field = new GameField();
     this.field.onEmptyCellClick = () => {
       if (!this.isGameOver) {
-        this.missCounter.increment();
-        this.nextTurn();
+        this.goblin.forceMiss();
       }
     };
     this.score = new Score();

@@ -53,4 +53,10 @@ export default class Goblin {
     this.hide();
     clearTimeout(this.timer);
   }
+
+  forceMiss() {
+    if (this.missed) {
+      this.miss();
+    }
+  }
 }
